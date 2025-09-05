@@ -4,6 +4,8 @@ Tired of using SQLite Browser? or perhaps you have skill issue in using SQL and 
 
 > Do note that there are differences with SQLite commands and other SQL frameworks like MySQL, but this is a good starting point.
 
+The point of this project is to learn SQL commands and syntax to the point of fluency, in which it can be applied for practical applications like connecting front-end apps to the backend- without the need to lookup what commands to use and the syntax.
+
 # Download
 
 These are pre-compiled so you don't have to run through setting up compiling environments:
@@ -62,7 +64,8 @@ Ctrl+C to exit the app.
 First, clone the repo:
 
 ```cmd
-git clone
+git clone https://github.com/pochicake/sqlite_cli.git
+cd sqlite_cli
 ```
 
 Then compile the project:
