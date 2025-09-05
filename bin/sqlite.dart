@@ -15,10 +15,11 @@ executeCommand(String sqliteCommand) {
     if (sqliteCommand.toLowerCase().trim().startsWith('select')) {
       return database!.select(sqliteCommand);
     }else{
-      return database!.execute(sqliteCommand);
+      database!.execute(sqliteCommand);
+      return "";
     }
   }catch (ex) {
-    return ex.toString();
+    return (ex as SqliteException).message.toString();
   }
 }
 
@@ -95,6 +96,9 @@ void main(List<String> arguments) {
   // Connect to the database
   if (databaseFile != null) {
     if (databaseFile!.existsSync()) {
+      if (isReadOnly) {
+        print("Warning: Read-only mode");
+      }
       database = sqlite3.open(databaseFile!.path, mode: isReadOnly ? OpenMode.readOnly : OpenMode.readWrite);
     }else{
       database = sqlite3.open(databaseFile!.path, mode: OpenMode.readWriteCreate);
